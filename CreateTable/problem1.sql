@@ -1,6 +1,6 @@
 --problem 1
 
 create table song (
-    Title varchar(100),
-    Artist varchar(100)
+    title varchar(100),
+    artist varchar(100)
 );
