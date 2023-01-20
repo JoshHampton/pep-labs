@@ -66,6 +66,7 @@ public class CreateATable {
         String sql = FileUtil.parseSQLFile("problem1.sql");
 
         try {
+            //Connection ConnectionUtil(sql);
             Connection connection = ConnectionUtil.getConnection();
             Statement s = connection.createStatement();
             s.executeUpdate(sql);
