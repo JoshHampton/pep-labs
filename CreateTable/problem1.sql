@@ -1,6 +1,1 @@
---problem 1
-
-create table song (
-    title varchar(100),
-    artist varchar(100)
-);
+CREATE TABLE song (title varchar(100) not null, artist varchar(100) not null);
