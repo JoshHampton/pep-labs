@@ -7,6 +7,16 @@ public class IsSorted {
      * @return true if arr is sorted (all the numbers are in order). false if arr is not sorted.
      */
     public boolean checkSort(int[] arr){
-        return false;
+        int min = arr[0];
+        int max = arr[0];
+        int curr = arr[0];
+
+        for (int i = 1; i < arr.length; i++){
+            if (curr > arr[i]){
+                return false;
+            }
+            curr = arr[i];
+        }
+        return true;
     }
 }
