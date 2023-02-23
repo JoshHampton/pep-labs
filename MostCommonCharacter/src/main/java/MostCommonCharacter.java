@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class MostCommonCharacter {
@@ -11,20 +13,26 @@ public class MostCommonCharacter {
      */
     public char recurringChar(String str) {
         HashMap<Character, Integer> hashmap = new HashMap<>();
-        HashMap<Character, Integer> highest = new HashMap<>();
-        highest.put(str.charAt(0), 1);
+        HashMap<Integer, Character> highest = new HashMap<>();
+        highest.put(0, str.charAt(0));
+        
+        int highVal = 1;        //used to keep track of highest val, so we don't need to keep adding to 'highest' hashmap
 
         for (int i = 0; i < str.length(); i++){
-            if (hashmap.containsKey(str.charAt(i))){
+            //If the character is already in the map, incriment its value.
+            if (hashmap.containsKey(str.charAt(i))){        
                 hashmap.put(str.charAt(i) , hashmap.get(str.charAt(i))+1);
-                if(hashmap.get(str.charAt(i)) > highest){
-                    highest++;
+                //If this key is now the most common, place it in highest
+                if(hashmap.get(str.charAt(i)) > highVal){
+                    highVal++;
+                    highest.put(0, str.charAt(i));
                 }
             }
+            //If the character isn't aready in the map, add it.
             else{
                 hashmap.put(str.charAt(i), 1);
             }
         }
-        return highest.get;
+        return highest.get(0);
     }
 }
