@@ -19,7 +19,14 @@ public class WordCountMap {
         String[] strWords = words.split(" ");
 
         for(int i = 0; i < strWords.length; i++){
-            if(hashmap.get(strWords[i]))
+            //if word already exists in hashmap, incriment value
+            if(hashmap.containsKey(strWords[i])){
+                hashmap.put(strWords[i], hashmap.get(strWords[i])+1);
+            }else{
+                //otherwise, add to hashmap
+                hashmap.put(strWords[i], 1);
+            }
+            
         }
 
         return hashmap;
